@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    App\Models\Tenant::all()->runForEach(function () {
+        App\Models\User::factory()->create();
+    });
+
     return view('welcome');
 });
