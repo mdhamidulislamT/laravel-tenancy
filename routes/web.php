@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\PostCondition;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,8 @@ Route::get('/', function () {
 
     return view('welcome');
 });
+
+
+Route::get('/post', [PostController::class, 'index']);
+Route::get('/post-2', [PostController::class, 'index2']);
+Route::get('/sendmail', [PostController::class, 'sendMail']);
